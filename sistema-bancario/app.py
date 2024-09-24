@@ -43,7 +43,13 @@ while True:
             print("Saque realizado com sucesso!")
 
     elif option == "3":
-        print("Extrato")
+        print("\n================ EXTRATO ================")
+        print(
+            "Não foram realizadas movimentações." if not extract else extract
+        )
+        print(f"\nSaldo: R$ {balance:.2f}")
+        print("==========================================")
+
     elif option == "0":
         break
 
