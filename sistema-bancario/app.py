@@ -1,4 +1,5 @@
 menu = """
+Use apenas números durante toda interação com o sistema.
 [1] Depositar
 [2] Sacar
 [3] Extrato
@@ -25,7 +26,21 @@ while True:
             print("Operação falhou! O valor informado é inválido.")
 
     elif option == "2":
-        print("Saque")
+        value = float(input("Informe o valor do saque: "))
+
+        if value > balance:
+            print("Operação falhou! Você não tem saldo suficiente.")
+        elif value < 0:
+            print("Operação falhou! O valor informado é inválido.")
+        elif value > limit:
+            print("Operação falhou! O valor do saque excede o limite diário.")
+        elif number_of_withdrawals >= LIMIT_OF_WITHDRAWALS:
+            print("Operação falhou! Número máximo de saques diários atingido.")
+        else:
+            balance -= value
+            extract += f"Saque: R$ {value:.2f}\n"
+            number_of_withdrawals += 1
+            print("Saque realizado com sucesso!")
 
     elif option == "3":
         print("Extrato")
