@@ -1,5 +1,4 @@
 menu = """
-
 [1] Depositar
 [2] Sacar
 [3] Extrato
@@ -17,7 +16,13 @@ while True:
     option = input(menu)
 
     if option == "1":
-        print("Depósito")
+        value = float(input("Informe o valor do depósito: "))
+
+        if value > 0:
+            balance += value
+            extract += f"Depósito: R$ {value:.2f}\n"
+        else:
+            print("Operação falhou! O valor informado é inválido.")
 
     elif option == "2":
         print("Saque")
