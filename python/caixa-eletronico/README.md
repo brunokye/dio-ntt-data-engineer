@@ -10,6 +10,6 @@ Este é um projeto simples que simula o funcionamento de um caixa eletrônico ut
   - O valor não pode ser negativo.
   - Existe um limite diário de saque (R$ 500,00).
   - Há um limite máximo de três saques por dia.
-- **Extrato**: Exibe todas as movimentações realizadas (depósitos e saques) e o saldo atual.
-- **Limite de Transações**: O sistema permite até 10 transações por dia (incluindo depósitos e saques).
+- **Extrato**: Exibe todas as movimentações realizadas (depósitos e saques) e o saldo atual:
+  - Há um limite no sistema de 10 transações por dia (incluindo depósitos e saques).
 - **Sair**: Encerra o programa.
