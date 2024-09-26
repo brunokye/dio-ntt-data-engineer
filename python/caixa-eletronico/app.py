@@ -12,10 +12,16 @@ Use apenas números durante toda interação com o sistema.
 balance = 0
 limit = 500
 extract = ""
+number_of_transactions = 0
 number_of_withdrawals = 0
+LIMIT_OF_TRANSACTIONS = 10
 LIMIT_OF_WITHDRAWALS = 3
 
 while True:
+    if number_of_transactions >= LIMIT_OF_TRANSACTIONS:
+        print("Número máximo de transações diários atingido.")
+        break
+
     option = input(menu)
 
     if option == "1":
@@ -25,6 +31,8 @@ while True:
             balance += value
             timestamp = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
             extract += f"Depósito: R$ {value:.2f} - {timestamp} \n"
+            number_of_transactions += 1
+            print("Depósito realizado com sucesso!")
         else:
             print("Operação falhou! O valor informado é inválido.")
 
@@ -43,6 +51,7 @@ while True:
             balance -= value
             timestamp = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
             extract += f"Saque: R$ {value:.2f} - {timestamp} \n"
+            number_of_transactions += 1
             number_of_withdrawals += 1
             print("Saque realizado com sucesso!")
 
