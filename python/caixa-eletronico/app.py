@@ -1,3 +1,5 @@
+from datetime import datetime
+
 menu = """
 Use apenas números durante toda interação com o sistema.
 [1] Depositar
@@ -21,7 +23,8 @@ while True:
 
         if value > 0:
             balance += value
-            extract += f"Depósito: R$ {value:.2f}\n"
+            timestamp = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+            extract += f"Depósito: R$ {value:.2f} - {timestamp} \n"
         else:
             print("Operação falhou! O valor informado é inválido.")
 
@@ -38,7 +41,8 @@ while True:
             print("Operação falhou! Número máximo de saques diários atingido.")
         else:
             balance -= value
-            extract += f"Saque: R$ {value:.2f}\n"
+            timestamp = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+            extract += f"Saque: R$ {value:.2f} - {timestamp} \n"
             number_of_withdrawals += 1
             print("Saque realizado com sucesso!")
 
