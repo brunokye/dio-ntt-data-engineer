@@ -7,5 +7,6 @@ Este repositório contém todas as atividades do Bootcamp NTT DATA - Engenharia 
 ##
 
 ##### Seção 1: [Python](https://github.com/brunokye/dio-ntt-data-engineer/tree/main/python)
-- [x] 1. Caixa Eletrônico
-- [x] 2. Sistema Bancário
+- [x] 1. Caixa Eletrônico (básico)
+- [x] 2. Sistema Bancário (utilizando funções)
+- [x] 3. Sistema Bancário v2 (utilizando POO)
