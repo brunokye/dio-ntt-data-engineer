@@ -70,9 +70,9 @@ def create_checking_account():
         return
 
     account = {
-        "agencia": "0001",
-        "numero": account_number,
-        "usuario": current_user,
+        "agency": "0001",
+        "number": account_number,
+        "user": current_user,
         "balance": 0,
         "extract": "",
         "number_of_transactions": 0,
@@ -152,7 +152,7 @@ def select_account():
 
     print("\nSelecione a conta:")
     for i, acc in enumerate(user_accounts):
-        print(f"[{i + 1}] Agência: {acc['agencia']}, Conta: {acc['numero']}")
+        print(f"[{i + 1}] Agência: {acc['agency']}, Conta: {acc['number']}")
 
     selected_index = int(input("Digite o número da conta desejada: ")) - 1
     if 0 <= selected_index < len(user_accounts):
