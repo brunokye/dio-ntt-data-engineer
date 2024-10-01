@@ -111,6 +111,7 @@ class Client:
     def add_account(self, account):
         if len(self.accounts) < 3:
             self.accounts.append(account)
+            print(f"\nConta corrente {account.number} criada com sucesso!")
         else:
             print("Usuário já possui o número máximo de contas!")
 
@@ -133,7 +134,7 @@ def create_user():
     cpf = input("Informe o CPF do usuário (apenas números): ")
 
     if cpf in clients:
-        print("Usuário já cadastrado!")
+        print("Operação falhou! Já existe um usuário cadastrado com esse CPF.")
         return None
 
     address = input("Informe o endereço: ")
@@ -161,7 +162,6 @@ def create_checking_account(client, number):
     if client:
         account = CheckingAccount(number, client)
         client.add_account(account)
-        print(f"\nConta corrente {number} criada com sucesso!")
         return account
     else:
         print("\nNenhum cliente disponível para criar conta.")
