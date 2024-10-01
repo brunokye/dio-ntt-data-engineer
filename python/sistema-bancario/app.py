@@ -98,14 +98,16 @@ def create_checking_account():
 def deposit(account):
     value = float(input("Informe o valor do depósito: "))
 
-    if value > 0:
+    if value < 0:
+        print("Operação falhou! O valor informado é inválido.")
+    elif account["number_of_transactions"] >= account["LIMIT_OF_TRANSACTIONS"]:
+        print("Operação falhou! Número máximo de transações diárias atingido.")
+    else:
         account["balance"] += value
         timestamp = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         account["extract"] += f"Depósito: R$ {value:.2f} - {timestamp} \n"
         account["number_of_transactions"] += 1
         print("Depósito realizado com sucesso!")
-    else:
-        print("Operação falhou! O valor informado é inválido.")
 
 
 def withdraw(account):
@@ -117,6 +119,8 @@ def withdraw(account):
         print("Operação falhou! O valor informado é inválido.")
     elif value > account["limit"]:
         print("Operação falhou! O valor do saque excede o limite diário.")
+    elif account["number_of_transactions"] >= account["LIMIT_OF_TRANSACTIONS"]:
+        print("Operação falhou! Número máximo de transações diárias atingido.")
     elif account["number_of_withdrawals"] >= account["LIMIT_OF_WITHDRAWALS"]:
         print("Operação falhou! Número máximo de saques diários atingido.")
     else:

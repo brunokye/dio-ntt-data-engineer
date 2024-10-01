@@ -27,14 +27,19 @@ while True:
     if option == "1":
         value = float(input("Informe o valor do depósito: "))
 
-        if value > 0:
+        if value < 0:
+            print("Operação falhou! O valor informado é inválido.")
+        elif number_of_transactions >= LIMIT_OF_TRANSACTIONS:
+            print(
+                "Operação falhou! Número máximo de transações "
+                "diárias atingido."
+            )
+        else:
             balance += value
             timestamp = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
             extract += f"Depósito: R$ {value:.2f} - {timestamp} \n"
             number_of_transactions += 1
             print("Depósito realizado com sucesso!")
-        else:
-            print("Operação falhou! O valor informado é inválido.")
 
     elif option == "2":
         value = float(input("Informe o valor do saque: "))
@@ -45,6 +50,11 @@ while True:
             print("Operação falhou! O valor informado é inválido.")
         elif value > limit:
             print("Operação falhou! O valor do saque excede o limite diário.")
+        elif number_of_transactions >= LIMIT_OF_TRANSACTIONS:
+            print(
+                "Operação falhou! Número máximo de transações "
+                "diárias atingido."
+            )
         elif number_of_withdrawals >= LIMIT_OF_WITHDRAWALS:
             print("Operação falhou! Número máximo de saques diários atingido.")
         else:

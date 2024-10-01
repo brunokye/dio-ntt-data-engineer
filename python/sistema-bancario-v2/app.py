@@ -19,6 +19,7 @@ class Deposit(Transaction):
             account.history.add_transaction(
                 f"Depósito: R$ {self.value:.2f} - {timestamp}"
             )
+            account.number_of_transactions += 1
             print("Depósito realizado com sucesso!")
         else:
             print("Operação falhou! O valor informado é inválido.")
@@ -41,6 +42,7 @@ class Withdrawal(Transaction):
             account.history.add_transaction(
                 f"Saque: R$ {self.value:.2f} - {timestamp}"
             )
+            account.number_of_transactions += 1
             account.number_of_withdrawals += 1
             print("Saque realizado com sucesso!")
 
@@ -90,11 +92,11 @@ class CheckingAccount(Account):
 
     def withdraw(self, value):
         withdrawal = Withdrawal(value)
-        withdrawal.register(self)
+        self.client.perform_transaction(self, withdrawal)
 
     def deposit(self, value):
         deposit = Deposit(value)
-        deposit.register(self)
+        self.client.perform_transaction(self, deposit)
 
 
 class Client:
