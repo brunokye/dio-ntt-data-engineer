@@ -161,23 +161,23 @@ def create_checking_account(client, number):
     if client:
         account = CheckingAccount(number, client)
         client.add_account(account)
-        print(f"Conta corrente {number} criada com sucesso!")
+        print(f"\nConta corrente {number} criada com sucesso!")
         return account
     else:
-        print("Nenhum cliente disponível para criar conta.")
+        print("\nNenhum cliente disponível para criar conta.")
         return None
 
 
 def select_account(client):
     if not client.accounts:
-        print("Nenhuma conta disponível para o cliente.")
+        print("\nNenhuma conta disponível para o cliente.")
         return None
 
     print("\nSelecione a conta:")
     for i, account in enumerate(client.accounts):
-        print(f"[{i + 1}] Agency {account.agency}, Account {account.number}")
+        print(f"[{i + 1}] Agência {account.agency}, Conta {account.number}")
 
-    option = int(input("Digite o número da conta desejada: ")) - 1
+    option = int(input("\nDigite o número da conta desejada: ")) - 1
     if 0 <= option < len(client.accounts):
         return client.accounts[option]
     else:
@@ -214,25 +214,25 @@ def main():
                 create_checking_account(current_client, account_number)
                 account_number += 1
             else:
-                print("Nenhum usuário logado!")
+                print("\nNenhum usuário logado!")
 
         elif option == "4":
             if current_client:
                 account = select_account(current_client)
                 if account:
-                    value = float(input("Informe o valor do depósito: "))
+                    value = float(input("\nInforme o valor do depósito: "))
                     account.deposit(value)
             else:
-                print("Nenhum usuário logado!")
+                print("\nNenhum usuário logado!")
 
         elif option == "5":
             if current_client:
                 account = select_account(current_client)
                 if account:
-                    value = float(input("Informe o valor do saque: "))
+                    value = float(input("\nInforme o valor do saque: "))
                     account.withdraw(value)
             else:
-                print("Nenhum usuário logado!")
+                print("\nNenhum usuário logado!")
 
         elif option == "6":
             if current_client:
@@ -243,13 +243,13 @@ def main():
                         print(transaction)
                     print(f"Saldo: R$ {account.balance:.2f}")
             else:
-                print("Nenhum usuário logado!")
+                print("\nNenhum usuário logado!")
 
         elif option == "0":
             break
 
         else:
-            print("Opção inválida!")
+            print("\nOpção inválida!")
 
 
 if __name__ == "__main__":
