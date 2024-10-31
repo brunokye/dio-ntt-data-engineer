@@ -17,4 +17,8 @@ Este repositório contém todas as atividades do Bootcamp NTT DATA - Engenharia 
 
 ##### Seção 3: [Power BI](https://github.com/brunokye/dio-ntt-data-engineer/tree/main/powerbi)
 - [x] 1. Fundamentos do Power BI
-- [x] 2. Trabalhando com Visuais
+- [x] 2. Criando Relatórios Interativos
+- [x] 3. Processamento de Dados
+- [x] 4. Modelagem de Dados
+- [x] 5. Storytelling
+- [x] 6. Data Analytics
